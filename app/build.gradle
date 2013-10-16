@@ -7,12 +7,14 @@ buildscript {
   }
   dependencies {
     classpath group: 'com.android.tools.build', name: 'gradle', version: '0.5.+'
-    classpath 'com.crashlytics.tools.gradle:crashlytics-gradle:1.+'
+    classpath group: 'com.crashlytics.tools.gradle', name: 'crashlytics-gradle', version: '1.+'
+    classpath group: 'com.squareup.gradle', name: 'gradle-android-test-plugin', version: '0.9.+'
   }
 }
 
 apply plugin: 'android'
 apply plugin: 'crashlytics'
+apply plugin: 'android-test'
 
 dependencies {
   repositories {
@@ -38,13 +40,17 @@ dependencies {
     compile group: 'com.android.support', name: 'support-v4', version: '13.0.+'
   }
 
+  testCompile group: 'org.robolectric', name: 'robolectric', version: '2.1.+'
+  testCompile group: 'junit', name: 'junit', version: '4.10'
+  testCompile group: 'com.squareup', name: 'fest-android', version: '1.0.+'
+
   instrumentTestCompile group: 'com.squareup', name: 'fest-android', version: '1.0.+'
   instrumentTestCompile group: 'com.squareup.spoon', name: 'spoon-client', version: '1.0.+'
 }
 
 android {
   compileSdkVersion 18
-  buildToolsVersion "18.0.1"
+  buildToolsVersion "18.1"
 
   testBuildType "debug"
 

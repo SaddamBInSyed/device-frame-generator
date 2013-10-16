@@ -17,7 +17,6 @@
 package com.f2prateek.dfg;
 
 import android.app.Application;
-import android.widget.Toast;
 import com.crashlytics.android.Crashlytics;
 import com.f2prateek.dfg.util.StorageUtils;
 import com.squareup.picasso.Picasso;
@@ -45,7 +44,8 @@ public class DFGApplication extends Application {
     }
 
     if (!StorageUtils.isStorageAvailable()) {
-      Toast.makeText(this, R.string.storage_unavailable, Toast.LENGTH_SHORT).show();
+      // TODO : clear
+      //Toast.makeText(this, R.string.storage_unavailable, Toast.LENGTH_SHORT).show();
     }
   }
 
